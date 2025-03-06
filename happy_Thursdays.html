@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喜帖 | Wedding Invitation</title>
+    <style>
+        body {
+            font-family: "SimSun", serif;
+            background-color: #fff5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0iI2ZkZWFlYSIgZD0iTTUwLDkwIEMyMi45LDkwIDEwLDc3LjEgMTAsNTAgQzEwLDIyLjkgMjIuOSwxMCA1MCwxMCBDNzcuMSwxMCA5MCwyMi45IDkwLDUwIEM5MCw3Ny4xIDc3LjEsOTAgNTAsOTAgTTUwLDAgQzIyLjQsMCAwLDIyLjQgMCw1MCBDMCA3Ny42IDIyLjQsMTAwIDUwLDEwMCBDNzcuNiwxMDAgMTAwLDc3LjYgMTAwLDUwIEMxMDAsMjIuNCA3Ny42LDAgNTAsMCIvPjwvc3ZnPg==');
+            position: relative;
+        }
+        
+        .invitation-header {
+            margin-bottom: 30px;
+        }
+        
+        .invitation-title {
+            font-size: 36px;
+            color: #d4145a;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .invitation-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .names {
+            font-size: 28px;
+            margin: 40px 0;
+            color: #d4145a;
+        }
+        
+        .heart {
+            color: #d4145a;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        
+        .details {
+            margin: 30px 0;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        
+        .date, .location, .rsvp {
+            margin: 15px 0;
+        }
+        
+        .decoration {
+            margin: 30px 0;
+            font-size: 24px;
+            color: #d4145a;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #d4145a;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .button:hover {
+            background-color: #b01048;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .hidden-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .kfc-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .kfc-content {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 24px;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-size: 48px;
+            color: #e3192a;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .qr-code::after {
+            content: "扫码支付 V50";
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .flower1, .flower2 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .flower1 {
+            top: 0;
+            left: 0;
+            transform: rotate(-30deg);
+        }
+        
+        .flower2 {
+            bottom: 0;
+            right: 0;
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flower1">🌸</div>
+        <div class="flower2">🌸</div>
+        
+        <div class="invitation-header">
+            <div class="invitation-title">婚礼邀请函</div>
+            <div class="invitation-subtitle">Wedding Invitation</div>
+        </div>
+        
+        <div class="decoration">❦ ❦ ❦</div>
+        
+        <div class="names">
+            <span>凌先生</span>
+            <span class="heart">❤</span>
+            <span>吴小姐</span>
+        </div>
+        
+        <div class="details">
+            <p>诚挚地邀请您参加我们的婚礼</p>
+            <p>We cordially invite you to celebrate our marriage</p>
+            
+            <div class="date">
+                <p>2025年3月6日 星期四 下午6点</p>
+                <p>Thursday, March 6th, 2025 at 6:00 PM</p>
+            </div>
+            
+            <div class="location">
+                <p>金玉满堂大酒店</p>
+                <p>Golden Prosperity Hotel</p>
+            </div>
+            
+            <div class="rsvp">
+                <p>恭候您的光临</p>
+                <p>Please RSVP by February 20th</p>
+            </div>
+        </div>
+        
+        <button class="button" id="rsvpButton">确认出席</button>
+        
+        <div class="decoration" style="margin-top: 50px;">❦ ❦ ❦</div>
+    </div>
+    
+    <div class="hidden-content" id="hiddenContent">
+        <div class="close-btn" id="closeBtn">×</div>
+        
+        <div class="kfc-logo">
+            🍗
+        </div>
+        
+        <div class="kfc-content">
+            <h2>今天是疯狂星期四！</h2>
+            <p>不好意思打扰了！其实不是结婚，是想约你吃肯德基！</p>
+            <p>V我50，我请你吃疯狂星期四套餐！</p>
+            <div class="price">¥50</div>
+            <p>不见不散哦！</p>
+            
+            <div class="qr-code">
+                <div style="padding: 65px 0; text-align: center; color: #e3192a; font-weight: bold;">V我50</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rsvpButton = document.getElementById('rsvpButton');
+            const hiddenContent = document.getElementById('hiddenContent');
+            const closeBtn = document.getElementById('closeBtn');
+            
+            rsvpButton.addEventListener('click', function() {
+                hiddenContent.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // 添加音效
+                const audio = new Audio('data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADrADT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAA6w+tnJJAAAAAAD/+5BkAA/wAABpAAAACAAADSAAAAEAAAGkAAAAIAAANIAAAASqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqg==');
+                audio.play();
+                
+                // 添加抖动效果
+                setTimeout(function() {
+                    document.querySelector('.kfc-content').style.animation = 'shake 0.5s';
+                }, 500);
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                hiddenContent.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // 定义抖动动画
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                    20%, 40%, 60%, 80% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
